@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta RADHIKA KAFLE="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fertility Counselor & Nursing Specialist | Nepal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --teal: #0B6E6E;
+    --teal-light: #138A8A;
+    --gold: #B8860B;
+    --gold-light: #D4A017;
+    --cream: #F8F4EE;
+    --cream-dark: #EDE8DF;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --text-mid: #4A4A6A;
+    --text-light: #8A8AAA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(248,244,238,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,134,11,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-mid); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--navy);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem 5rem; position: relative; overflow: hidden;
+  }
+  .hero-left::before {
+    content: ''; position: absolute; top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(11,110,110,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal-light); margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-RADHIKA KAFLE {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 700;
+    color: var(--white); line-height: 1.05; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+  .hero-RADHIKA KAFLE em { display: block; font-style: italic; color: var(--gold-light); font-weight: 400; }
+
+  .hero-desc {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(255,255,255,0.65); max-width: 380px; margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 2rem; background: var(--teal); color: var(--white);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none; border-radius: 2px;
+    transition: all 0.3s ease; opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards;
+    width: fit-content;
+  }
+  .hero-cta:hover { background: var(--teal-light); transform: translateX(4px); }
+
+  .hero-right {
+    background: var(--cream-dark);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 5rem 4rem 4rem;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .stat-card {
+    background: var(--white); padding: 1.8rem 1.5rem;
+    border-radius: 4px; border-left: 3px solid var(--teal);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 3rem;
+    font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.3rem;
+  }
+  .stat-num span { color: var(--teal); font-size: 1.8rem; }
+  .stat-label { font-size: 0.78rem; color: var(--text-light); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+
+  .hero-quote {
+    background: var(--navy); padding: 2rem; border-radius: 4px; position: relative;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  .hero-quote::before {
+    content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 5rem;
+    color: var(--teal); position: absolute; top: -10px; left: 15px;
+    line-height: 1; opacity: 0.5;
+  }
+  .hero-quote p {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.7; padding-left: 1rem;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 8rem 5rem;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: center;
+    background: var(--white);
+  }
+  .section-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
+    color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--teal); }
+
+  .about-card {
+    background: var(--navy); padding: 3rem 2.5rem;
+    border-radius: 4px; position: relative; overflow: hidden;
+  }
+  .about-card::after {
+    content: ''; position: absolute; bottom: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(11,110,110,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .about-card-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    font-weight: 700; color: var(--white); margin-bottom: 0.5rem;
+  }
+  .about-card-sub {
+    font-size: 0.85rem; color: var(--teal-light);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem;
+  }
+  .about-card-items { list-style: none; }
+  .about-card-items li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.5;
+  }
+  .about-card-items li:last-child { border-bottom: none; }
+  .about-card-items li::before { content: '→'; color: var(--teal-light); flex-shrink: 0; margin-top: 1px; }
+
+  .about-text p { font-size: 1rem; line-height: 1.9; color: var(--text-mid); margin-bottom: 1.2rem; }
+
+  /* SERVICES */
+  .services { padding: 8rem 5rem; background: var(--cream); }
+  .services-header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  .service-card {
+    background: var(--white); padding: 2.5rem 2rem; border-radius: 4px;
+    border-top: 3px solid var(--teal);
+    transition: all 0.3s ease; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+  .service-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+    font-weight: 700; color: var(--navy); margin-bottom: 0.8rem;
+  }
+  .service-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+
+  /* APPROACH */
+  .approach { padding: 8rem 5rem; background: var(--cream-dark); }
+  .approach-inner {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center;
+  }
+  .approach-steps { margin-top: 2rem; }
+  .step {
+    display: flex; gap: 1.5rem; margin-bottom: 2rem;
+    padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .step:last-child { border-bottom: none; margin-bottom: 0; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+    font-weight: 700; color: var(--teal); opacity: 0.4;
+    line-height: 1; flex-shrink: 0; width: 40px;
+  }
+  .step-content h4 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    font-weight: 700; color: var(--navy); margin-bottom: 0.4rem;
+  }
+  .step-content p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+
+  .approach-right {
+    background: var(--teal); padding: 3.5rem; border-radius: 4px;
+    position: relative; overflow: hidden;
+  }
+  .approach-right::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 250px; height: 250px; background: rgba(255,255,255,0.08); border-radius: 50%;
+  }
+  .approach-right h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    font-weight: 700; color: var(--white); margin-bottom: 2rem; line-height: 1.2;
+  }
+  .condition-list { list-style: none; }
+  .condition-list li {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85); font-size: 0.92rem;
+  }
+  .condition-list li:last-child { border-bottom: none; }
+  .condition-dot { width: 6px; height: 6px; background: var(--gold-light); border-radius: 50%; flex-shrink: 0; }
+
+  /* TESTIMONIAL */
+  .testimonial { padding: 8rem 5rem; background: var(--navy); text-align: center; }
+  .testimonial .section-tag { color: var(--teal-light); }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem; }
+  .tcard {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem; border-radius: 4px; text-align: left;
+  }
+  .tcard-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .tcard-author { font-size: 0.78rem; color: var(--teal-light); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* CONTACT */
+  .contact {
+    padding: 8rem 5rem; background: var(--white); text-align: center;
+  }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700;
+    color: var(--navy); margin-bottom: 1rem; line-height: 1.1;
+  }
+  .contact-title em { font-style: italic; color: var(--teal); }
+  .contact-sub {
+    font-size: 1rem; color: var(--text-mid); margin-bottom: 3rem;
+    max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2rem; border-radius: 2px; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s ease;
+  }
+  .contact-link.primary { background: var(--teal); color: var(--white); }
+  .contact-link.primary:hover { background: var(--teal-light); }
+  .contact-link.secondary { border: 1px solid rgba(0,0,0,0.15); color: var(--text-mid); }
+  .contact-link.secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  .contact-info {
+    display: flex; justify-content: center; gap: 3rem;
+    margin-top: 3rem; padding-top: 3rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .contact-info-item { text-align: center; }
+  .contact-info-label {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 0.4rem;
+  }
+  .contact-info-value { font-size: 0.95rem; color: var(--navy); font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: #070D14; padding: 2rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); }
+  .footer-logo span { color: var(--teal-light); }
+  .footer-text { font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero-right { padding: 3rem 2rem; }
+    .about, .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .about, .services, .approach, .testimonial, .contact { padding: 5rem 1.5rem; }
+    .contact-info { flex-direction: column; gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">RADHIKA KAFLE<span> · Fertility Counselor</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Fertility Counselor & Nursing Specialist · Nepal</p>
+    <h1 class="hero-name" style="color:#FFFFFF;">
+      With you through<br>
+      <em>every step</em><br>
+      of the journey.
+    </h1>
+    <p class="hero-desc">
+      Seven years of dedicated fertility counseling and nursing care — providing compassionate clinical and emotional support to couples across Nepal navigating infertility.
+    </p>
+    <a href="#contact" class="hero-cta">
+      Book a Consultation →
+    </a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">7<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Couples Supported</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Provinces Reached</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">IVF</div>
+        <div class="stat-label">Specialist Nursing</div>
+      </div>
+    </div>
+
+    <div class="hero-quote">
+      <p>Every couple deserves to feel heard, informed and supported — not just treated. That is the care I bring to every consultation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left reveal">
+    <img src="photo.jpg" alt="Radhika Kafle - Fertility Counselor" style="width:100%; height:420px; object-fit:cover; object-position:center top; border-radius:4px; margin-bottom:1.5rem; box-shadow:0 8px 30px rgba(0,0,0,0.15); display:block;">
+    <div class="about-card">
+      <div class="about-card-title">RADHIKA KAFLE</div>
+      <div class="about-card-sub">Fertility Counselor · Nursing Incharge</div>
+      <ul class="about-card-items">
+        <li>7 years fertility counseling and nursing experience</li>
+        <li>Nursing Incharge at leading IVF centre in Nepal</li>
+        <li>Pre, during and post-treatment emotional support</li>
+        <li>Specialist in psychosocial care during ART cycles</li>
+        <li>Couples and individual counseling</li>
+        <li>Male infertility counseling and support</li>
+        <li>Available for in-person and teleconsultation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="about-text reveal">
+    <p class="section-tag">About</p>
+    <h2 class="section-title">Clinical expertise.<br><em>Human compassion.</em></h2>
+    <p>
+      With seven years as a fertility counselor and nursing incharge at one of Nepal's leading IVF centres, I have worked directly with hundreds of couples at every stage of their fertility journey — from the first uncertain consultation to the last difficult result.
+    </p>
+    <p>
+      I understand what infertility looks and feels like from the inside — the anxiety before each procedure, the silence during the two-week wait, the grief after a failed cycle, and the particular loneliness of facing this in a society that rarely speaks about it openly.
+    </p>
+    <p>
+      My work combines clinical nursing care with evidence-based psychosocial counseling — addressing the medical, emotional, relational, and social dimensions of infertility that shape a couple's experience as much as any clinical protocol.
+    </p>
+    <p>
+      I work with couples from all backgrounds and all 7 provinces of Nepal — and I am committed to ensuring that every person who comes to me feels genuinely seen, informed, and supported throughout their journey.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <p class="section-tag">What I Do</p>
+    <h2 class="section-title">Counseling and care<br>at <em>every stage.</em></h2>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🌿</div>
+      <h3>Pre-Treatment Counseling</h3>
+      <p>Before IVF or IUI begins — helping couples understand the process, set realistic expectations, address fears, and build the emotional resilience needed for the journey ahead.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">💊</div>
+      <h3>IVF Nursing Care</h3>
+      <p>Clinical nursing support throughout the full IVF cycle — medication management, monitoring, procedure coordination, and ensuring couples understand every step of their treatment clearly and confidently.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🤲</div>
+      <h3>During-Treatment Emotional Support</h3>
+      <p>The weeks of an IVF cycle are emotionally intense. I provide consistent support through stimulation, retrieval, fertilization, transfer, and the waiting period — so no couple faces the hardest moments alone.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">💙</div>
+      <h3>Post-Treatment and Grief Support</h3>
+      <p>Whether a cycle succeeds or fails, the emotional aftermath requires skilled, compassionate care. Specializing in grief counseling after failed cycles and ongoing support for recurrent pregnancy loss.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">👫</div>
+      <h3>Couples Counseling</h3>
+      <p>Infertility places extraordinary pressure on relationships. Working with both partners together — addressing communication, shared decision-making, intimacy, and the strain of treatment on the relationship.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">👨</div>
+      <h3>Male Infertility Support</h3>
+      <p>Men carry their own grief and stigma around infertility — largely in silence. Providing dedicated, confidential counseling for men navigating diagnosis, treatment, and the emotional weight of infertility in Nepal's cultural context.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="approach-left reveal">
+      <p class="section-tag">How I Work</p>
+      <h2 class="section-title">A process built around<br><em>you — not the clinic.</em></h2>
+
+      <div class="approach-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>First Consultation</h4>
+            <p>A full, unhurried initial consultation — understanding your complete medical, emotional, and personal history. No rushing. No assumptions. Just listening.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Personalised Care Plan</h4>
+            <p>Developing a counseling and support plan tailored specifically to your situation — running alongside clinical treatment, not separate from it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Continuous Support Through Treatment</h4>
+            <p>Present through every critical moment — procedures, results, setbacks. Consistent, reliable, human support at every stage of the cycle.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h4>Follow-Up and Ongoing Care</h4>
+            <p>Whether the outcome is joy or grief — structured follow-up ensures you are supported through what comes next, for as long as you need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-right reveal">
+      <h3>Conditions I support</h3>
+      <ul class="condition-list">
+        <li><span class="condition-dot"></span>Polycystic Ovary Syndrome (PCOS)</li>
+        <li><span class="condition-dot"></span>Unexplained infertility</li>
+        <li><span class="condition-dot"></span>Male factor infertility</li>
+        <li><span class="condition-dot"></span>Recurrent pregnancy loss</li>
+        <li><span class="condition-dot"></span>Endometriosis</li>
+        <li><span class="condition-dot"></span>Diminished ovarian reserve</li>
+        <li><span class="condition-dot"></span>Failed IVF cycles</li>
+        <li><span class="condition-dot"></span>Premature ovarian insufficiency</li>
+        <li><span class="condition-dot"></span>Thyroid-related fertility concerns</li>
+        <li><span class="condition-dot"></span>Infertility-related depression and anxiety</li>
+        <li><span class="condition-dot"></span>Relationship strain from infertility</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial" id="testimonial">
+  <p class="section-tag reveal">What Couples Say</p>
+  <h2 class="section-title reveal" style="color:var(--white);">Words from the <em style="color:var(--gold-light)">journey.</em></h2>
+
+  <div class="testimonial-grid">
+    <div class="tcard reveal">
+      <p class="tcard-quote">"She was the one person who made us feel like we were not alone. Every question answered. Every fear acknowledged. We could not have gone through the process without her."</p>
+      <p class="tcard-author">Couple from Pokhara · 2024</p>
+    </div>
+    <div class="tcard reveal">
+      <p class="tcard-quote">"When our second cycle failed I did not know how to speak about what I was feeling. She gave me the words and the space to grieve properly. That changed everything for us."</p>
+      <p class="tcard-author">Patient from Biratnagar · 2024</p>
+    </div>
+    <div class="tcard reveal">
+      <p class="tcard-quote">"My husband came to one session. He left a different person. She understood what he was carrying in a way nobody else had tried to. We are grateful every single day."</p>
+      <p class="tcard-author">Couple from Kathmandu · 2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK FREE CONSULTATION -->
+<section style="padding:6rem 5rem; background:var(--teal); text-align:center;">
+  <div class="reveal">
+    <p style="font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:1rem;">Limited Slots Available</p>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; color:#fff; margin-bottom:1rem; line-height:1.15;">Book Your <em style="font-style:italic; color:var(--gold-light);">Free</em> First Consultation</h2>
+    <p style="font-size:1rem; color:rgba(255,255,255,0.75); max-width:520px; margin:0 auto 2.5rem; line-height:1.8;">Your first conversation with Radhika is completely free — no commitment, no pressure. Just an honest, confidential discussion about where you are and how she can help.</p>
+    <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:2rem;">
+      <a href="mailto:radhs984@gmail.com?subject=Free Consultation Request" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:#fff; color:var(--teal); font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">📧 Book via Email</a>
+      <a href="https://wa.me/9779707912586" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:transparent; border:2px solid rgba(255,255,255,0.5); color:#fff; font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">💬 Book via WhatsApp</a>
+    </div>
+    <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem; margin-bottom:0.3rem;">✅</div>
+        <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em;">100% Free</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem; margin-bottom:0.3rem;">🔒</div>
+        <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em;">Confidential</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem; margin-bottom:0.3rem;">📱</div>
+        <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em;">In-person or Online</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem; margin-bottom:0.3rem;">🇳🇵</div>
+        <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em;">Nepali & English</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="contact-title">Begin your<br><em>journey</em> today.</h2>
+    <p class="contact-sub">
+      Whether you are about to start treatment, in the middle of a cycle, or recovering from a difficult result — reach out. The first conversation is always free.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:radhs984@gmail.com" class="contact-link primary">📧 Email for Appointment</a>
+      <a href="https://wa.me/9779707912586" target="_blank" class="contact-link secondary">💬 WhatsApp</a>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="contact-info-label">Location</div>
+        <div class="contact-info-value">Janani Fertility Clinic, Pulchowk, Lalitpur</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Consultation</div>
+        <div class="contact-info-value">In-person & Teleconsultation</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Languages</div>
+        <div class="contact-info-value">Nepali · English · Hindi</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Availability</div>
+        <div class="contact-info-value">By Appointment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RADHIKA KAFLE <span>· Fertility Counselor</span></div>
+  <div class="footer-text">Kathmandu, Nepal · 2026</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+  });
+</script>
+</body>
+</html>
