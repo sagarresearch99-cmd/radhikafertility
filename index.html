@@ -65,6 +65,8 @@
     display: flex; flex-direction: column; justify-content: center;
     padding: 8rem 4rem 4rem 5rem; position: relative; overflow: hidden;
   }
+  
+
   .hero-left::before {
     content: ''; position: absolute; top: -100px; left: -100px;
     width: 400px; height: 400px;
@@ -101,6 +103,20 @@
   }
   .hero-cta:hover { background: var(--teal-light); transform: translateX(4px); }
 
+
+  .lotus-bg {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    width: 500px;
+    height: 500px;
+  }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right > * { position: relative; z-index: 1; }
   .hero-right {
     background: var(--cream-dark);
     display: flex; flex-direction: column; justify-content: center;
@@ -139,19 +155,50 @@
   /* ABOUT */
   .about {
     padding: 8rem 5rem;
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: center;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; align-items: start;
     background: var(--white);
   }
+  .section-header {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .section-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--navy);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .section-box-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--navy);
+    padding: 0.5rem 1.8rem;
+    border-radius: 2px;
+    margin: 0 auto 0.8rem;
+    width: fit-content;
+  }
+
+  .section-title em { font-style: italic; color: var(--teal); }
+  .section-title-white {
+    font-family: Cormorant Garamond, serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .section-title-white em { font-style: italic; color: var(--gold-light); }
   .section-tag {
     font-family: 'DM Mono', monospace; font-size: 0.72rem;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--teal); margin-bottom: 1rem;
   }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
-    color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem;
-  }
+
   .section-title em { font-style: italic; color: var(--teal); }
 
   .about-card {
@@ -317,15 +364,67 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 8rem 2rem 4rem; }
-    .hero-right { padding: 3rem 2rem; }
-    .about, .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .testimonial-grid { grid-template-columns: 1fr; }
-    .about, .services, .approach, .testimonial, .contact { padding: 5rem 1.5rem; }
-    .contact-info { flex-direction: column; gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 1.5rem 3rem; }
+  
+  .lotus-bg {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    width: 500px;
+    height: 500px;
+  }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right > * { position: relative; z-index: 1; }
+  .hero-right { padding: 2rem 1.5rem 3rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-num { font-size: 2.2rem; }
+    .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+    .services { padding: 4rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .approach { padding: 4rem 1.5rem; }
+    .approach-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .approach-right { padding: 2rem 1.5rem; }
+    .testimonial { padding: 4rem 1.5rem; }
+    .testimonial-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .contact { padding: 4rem 1.5rem; }
+    .contact-links { flex-direction: column; align-items: center; }
+    .contact-link { width: 100%; justify-content: center; }
+    .contact-info { flex-direction: column; gap: 1.2rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  
+    .hero-name { font-size: 2.4rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-left { padding: 6rem 1.2rem 2.5rem; }
+  
+  .lotus-bg {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    width: 500px;
+    height: 500px;
+  }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right > * { position: relative; z-index: 1; }
+  .hero-right { padding: 1.5rem 1.2rem 2.5rem; }
+    .stat-card { padding: 1.2rem 1rem; }
+    .stat-num { font-size: 1.8rem; }
+    .stat-label { font-size: 0.68rem; }
+    .hero-name { font-size: 2rem; }
+    .hero-desc { font-size: 0.9rem; }
+    .hero-cta { width: 100%; justify-content: center; }
+    .about, .services, .approach, .testimonial, .contact { padding: 3rem 1.2rem; }
+    .nav-logo { font-size: 1rem; }
+  
   }
 </style>
 </head>
@@ -345,6 +444,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
+    
     <p class="hero-tag">Fertility Counselor & Nursing Specialist · Nepal</p>
     <h1 class="hero-name" style="color:#FFFFFF;">
       With you through<br>
@@ -355,12 +455,38 @@
       Seven years of dedicated fertility counseling and nursing care — providing compassionate clinical and emotional support to couples across Nepal navigating infertility.
     </p>
     <a href="#contact" class="hero-cta">
-      Book a Consultation →
+      Contact for Free Now →
     </a>
   </div>
 
   <div class="hero-right">
-    <div class="hero-stats">
+    
+    <svg class="lotus-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Center circle -->
+      <circle cx="100" cy="100" r="18" fill="white" opacity="0.9"/>
+      <!-- Inner petals -->
+      <ellipse cx="100" cy="68" rx="10" ry="28" fill="white" opacity="0.85"/>
+      <ellipse cx="100" cy="132" rx="10" ry="28" fill="white" opacity="0.85"/>
+      <ellipse cx="68" cy="100" rx="28" ry="10" fill="white" opacity="0.85"/>
+      <ellipse cx="132" cy="100" rx="28" ry="10" fill="white" opacity="0.85"/>
+      <ellipse cx="78" cy="78" rx="10" ry="28" fill="white" opacity="0.85" transform="rotate(-45 78 78)"/>
+      <ellipse cx="122" cy="78" rx="10" ry="28" fill="white" opacity="0.85" transform="rotate(45 122 78)"/>
+      <ellipse cx="78" cy="122" rx="10" ry="28" fill="white" opacity="0.85" transform="rotate(45 78 122)"/>
+      <ellipse cx="122" cy="122" rx="10" ry="28" fill="white" opacity="0.85" transform="rotate(-45 122 122)"/>
+      <!-- Outer petals -->
+      <ellipse cx="100" cy="44" rx="9" ry="32" fill="white" opacity="0.6"/>
+      <ellipse cx="100" cy="156" rx="9" ry="32" fill="white" opacity="0.6"/>
+      <ellipse cx="44" cy="100" rx="32" ry="9" fill="white" opacity="0.6"/>
+      <ellipse cx="156" cy="100" rx="32" ry="9" fill="white" opacity="0.6"/>
+      <ellipse cx="63" cy="63" rx="9" ry="32" fill="white" opacity="0.6" transform="rotate(-45 63 63)"/>
+      <ellipse cx="137" cy="63" rx="9" ry="32" fill="white" opacity="0.6" transform="rotate(45 137 63)"/>
+      <ellipse cx="63" cy="137" rx="9" ry="32" fill="white" opacity="0.6" transform="rotate(45 63 137)"/>
+      <ellipse cx="137" cy="137" rx="9" ry="32" fill="white" opacity="0.6" transform="rotate(-45 137 137)"/>
+      <!-- Outermost ring -->
+      <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 6"/>
+      <circle cx="100" cy="100" r="75" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"/>
+    </svg>
+<div class="hero-stats">
       <div class="stat-card">
         <div class="stat-num">7<span>+</span></div>
         <div class="stat-label">Years Experience</div>
@@ -405,7 +531,7 @@
   </div>
 
   <div class="about-text reveal">
-    <p class="section-tag">About</p>
+    <div class="section-box"><p class="section-tag" style="color:var(--teal-light); margin:0;">About</p></div>
     <h2 class="section-title">Clinical expertise.<br><em>Human compassion.</em></h2>
     <p>
       With seven years as a fertility counselor and nursing incharge at one of Nepal's leading IVF centres, I have worked directly with hundreds of couples at every stage of their fertility journey — from the first uncertain consultation to the last difficult result.
@@ -472,7 +598,7 @@
 <section class="approach" id="approach">
   <div class="approach-inner">
     <div class="approach-left reveal">
-      <p class="section-tag">How I Work</p>
+      <div class="section-box"><p class="section-tag" style="color:var(--teal-light); margin:0;">How I Work</p></div>
       <h2 class="section-title">A process built around<br><em>you — not the clinic.</em></h2>
 
       <div class="approach-steps">
@@ -528,8 +654,8 @@
 
 <!-- TESTIMONIALS -->
 <section class="testimonial" id="testimonial">
-  <p class="section-tag reveal">What Couples Say</p>
-  <h2 class="section-title reveal" style="color:var(--white);">Words from the <em style="color:var(--gold-light)">journey.</em></h2>
+  <div class="section-box-center reveal" style="background:rgba(255,255,255,0.1);"><p class="section-tag" style="color:var(--teal-light); margin:0;">What Couples Say</p></div>
+  <h2 class="section-title-white reveal">Words from the <em>journey.</em></h2>
 
   <div class="testimonial-grid">
     <div class="tcard reveal">
@@ -551,11 +677,11 @@
 <section style="padding:6rem 5rem; background:var(--teal); text-align:center;">
   <div class="reveal">
     <p style="font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:1rem;">Limited Slots Available</p>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; color:#fff; margin-bottom:1rem; line-height:1.15;">Book Your <em style="font-style:italic; color:var(--gold-light);">Free</em> First Consultation</h2>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; color:#fff; margin-bottom:1rem; line-height:1.15;">Get <em style="font-style:italic; color:var(--gold-light);">Free</em> Suggestions Now</h2>
     <p style="font-size:1rem; color:rgba(255,255,255,0.75); max-width:520px; margin:0 auto 2.5rem; line-height:1.8;">Your first conversation with Radhika is completely free — no commitment, no pressure. Just an honest, confidential discussion about where you are and how she can help.</p>
     <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:2rem;">
-      <a href="mailto:radhs984@gmail.com?subject=Free Consultation Request" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:#fff; color:var(--teal); font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">📧 Book via Email</a>
-      <a href="https://wa.me/9779707912586" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:transparent; border:2px solid rgba(255,255,255,0.5); color:#fff; font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">💬 Book via WhatsApp</a>
+      <a href="mailto:radhs984@gmail.com?subject=Free Consultation Request" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:#fff; color:var(--teal); font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">📧 Contact for Free Now</a>
+      <a href="https://wa.me/9779707912586" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; padding:1rem 2.5rem; background:transparent; border:2px solid rgba(255,255,255,0.5); color:#fff; font-size:0.9rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.3s ease;">💬 Chat on WhatsApp</a>
     </div>
     <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
       <div style="text-align:center;">
@@ -578,16 +704,61 @@
   </div>
 </section>
 
+
+<!-- FAQ SECTION -->
+<section style="padding:6rem 5rem; background:var(--cream);">
+  <div class="reveal" style="max-width:800px; margin:0 auto;">
+    <div class="section-box-center"><p class="section-tag" style="color:var(--teal-light); margin:0;">Common Questions</p></div>
+    <h2 class="section-title" style="text-align:center; margin-bottom:3rem;">Frequently Asked <em>Questions</em></h2>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">What does a fertility counseling session involve?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">A session is a private, confidential conversation — in person or online. We discuss your medical history, emotional wellbeing, relationship dynamics, and your questions about treatment. There is no judgment and no pressure.</p>
+    </div>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Do both husband and wife need to attend?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">Not always. Individual sessions are available for either partner. Couples sessions are also available and often very helpful — but the choice is entirely yours.</p>
+    </div>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Is everything I share kept confidential?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">Yes — completely. Nothing discussed in a session is shared with anyone, including your treating doctor, without your explicit written consent.</p>
+    </div>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Can I get counseling even if I am not doing IVF?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">Absolutely. Counseling is available at any stage — whether you are just beginning to explore options, undergoing IUI, recovering from a miscarriage, or simply struggling emotionally with a diagnosis.</p>
+    </div>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Do you offer teleconsultation for patients outside Kathmandu?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">Yes. Sessions are available via phone or video call for patients from any province in Nepal. Language is not a barrier — sessions are available in Nepali, English, and Hindi.</p>
+    </div>
+
+    <div class="faq-item" style="border-bottom:1px solid rgba(0,0,0,0.08); padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">What is the difference between a nurse and a counselor?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">As both a qualified nurse and a trained fertility counselor, I offer something most practitioners cannot — clinical understanding of your treatment combined with genuine emotional support. You do not have to explain the medical details. I already understand them.</p>
+    </div>
+
+    <div class="faq-item" style="padding:1.5rem 0;">
+      <h4 style="font-family:Cormorant Garamond,serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">How do I get started?</h4>
+      <p style="font-size:0.92rem; line-height:1.8; color:var(--text-mid);">Simply send a WhatsApp message or email. The first conversation is completely free — no commitment required. Just reach out and we will take it from there.</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="reveal">
-    <p class="section-tag">Get In Touch</p>
+    <div class="section-box-center"><p class="section-tag" style="color:var(--teal-light); margin:0;">Get In Touch</p></div>
     <h2 class="contact-title">Begin your<br><em>journey</em> today.</h2>
     <p class="contact-sub">
       Whether you are about to start treatment, in the middle of a cycle, or recovering from a difficult result — reach out. The first conversation is always free.
     </p>
     <div class="contact-links">
-      <a href="mailto:radhs984@gmail.com" class="contact-link primary">📧 Email for Appointment</a>
+      <a href="mailto:radhs984@gmail.com" class="contact-link primary">📧 Contact for Free Now</a>
       <a href="https://wa.me/9779707912586" target="_blank" class="contact-link secondary">💬 WhatsApp</a>
     </div>
 
